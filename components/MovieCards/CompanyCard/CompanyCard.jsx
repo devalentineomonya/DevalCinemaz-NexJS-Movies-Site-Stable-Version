@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import Image from "next/legacy/image";
+import Image from "next/image";
 import fallbackImage from "@/assets/fallbackImage.svg";
 
 const CompanyCard = ({ mediaInfo }) => {
@@ -18,15 +18,21 @@ const CompanyCard = ({ mediaInfo }) => {
       onMouseEnter={() => setMouseHover(true)}
       onMouseLeave={() => setMouseHover(false)}
     >
-          <Image quality={100} layout="responsive" width={1}  height={1}
-        src={typeof image !== "string" ? image.src : image}
-        className="absolute w-full h-full object-cover"
-        alt={mediaInfo?.name}
-        onError={() => {
-          setImage(fallbackImage);
-        }}
-       
-      />
+          <Image
+            quality={100}
+            width={1}
+            height={1}
+            src={typeof image !== "string" ? image.src : image}
+            className="absolute w-full h-full object-cover"
+            alt={mediaInfo?.name}
+            onError={() => {
+              setImage(fallbackImage);
+            }}
+            sizes="100vw"
+            style={{
+              width: "100%",
+              height: "auto"
+            }} />
       <div
         className={`absolute bg-gradient-to-t from-gray-700 to-transparent w-full h-1/2 flex justify-start items-end pl-4 pb-6 cursor-pointer  transition-all ease-in-out duration-300  ${
           mouseHover ? "bottom-0 " : "bottom-[-300px]"

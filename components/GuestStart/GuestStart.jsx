@@ -1,5 +1,5 @@
 "use client";
-import Image from "next/legacy/image";
+import Image from "next/image";
 import fallbackImage from "@/assets/fallbackImage.svg";
 import { useState } from "react";
 import Link from "next/link";
@@ -17,13 +17,19 @@ const GuestStart = ({ guestStar }) => {
     <Link href={`/people/details/${guestStar.id}`}>
       <div className="h-fit w-56 flex flex-row gap-x-2 border border-customDark dark:border-customWhite rounded-xl text-customDark dark:text-customWhite">
         <div className="w-16 h-20  rounded-xl overflow-hidden ">
-              <Image quality={100} layout="responsive" width={1}  height={1}
-            src={image}
-            className="h-full w-full"
-    
-            alt={guestStar.original_name || "Name not defined"}
-            onError={()=>setImage(fallbackImage)}
-          />
+              <Image
+                quality={100}
+                width={1}
+                height={1}
+                src={image}
+                className="h-full w-full"
+                alt={guestStar.original_name || "Name not defined"}
+                onError={()=>setImage(fallbackImage)}
+                sizes="100vw"
+                style={{
+                  width: "100%",
+                  height: "auto"
+                }} />
         </div>
         <div className="flex justify-center flex-col">
           <p className="text-xl font-Dosis font-semibold">

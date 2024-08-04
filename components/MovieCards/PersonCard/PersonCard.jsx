@@ -1,5 +1,5 @@
 "use client";
-import Image from "next/legacy/image";
+import Image from "next/image";
 import React, { useState } from "react";
 import fallbackImage from "@/assets/fallbackImage.svg";
 import Link from "next/link";
@@ -14,15 +14,21 @@ const PersonCard = ({ width, cast }) => {
     >
       <div className="h-[87%] relative rounded-md overflow-hidden">
       <Link href={`/people/details/${cast.id}`}>
-            <Image quality={100} layout="responsive" width={1}  height={1}
-         src={typeof(image) !== 'string' ? image.src : image} 
-          className="w-full h-full object-cover absolute"
-         
-          onError={() => {
-            setImage(fallbackImage);
-          }}
-          alt={cast.character}
-        />
+            <Image
+              quality={100}
+              width={1}
+              height={1}
+              src={typeof(image) !== 'string' ? image.src : image}
+              className="w-full h-full object-cover absolute"
+              onError={() => {
+                setImage(fallbackImage);
+              }}
+              alt={cast.character}
+              sizes="100vw"
+              style={{
+                width: "100%",
+                height: "auto"
+              }} />
       </Link>
       </div>
       

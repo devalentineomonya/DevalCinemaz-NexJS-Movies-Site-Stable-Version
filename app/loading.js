@@ -10,7 +10,7 @@ const Loading = () => {
     light: "#000000",
   };
 
-  const color = themeColors[theme] || themeColors.light;
+  const color = themeColors[theme] ?? themeColors.light;
  ;
 
   return (

@@ -1,5 +1,5 @@
 "use client";
-import Image from "next/legacy/image";
+import Image from "next/image";
 import React, { useState } from "react";
 import fallbackImage from "@/assets/fallbackImage.svg";
 import Link from "next/link";
@@ -19,16 +19,22 @@ const MovieInCategory = ({ seriesAiringTodayInfo, mediaType, width=72 }) => {
             seriesAiringTodayInfo?.id
           }`}
         >
-              <Image quality={100} layout="responsive" width={1}  height={1}
-            src={typeof(image) !== 'string' ? image.src : image} 
-            className="absolute w-full h-full object-cover"
-            alt={
-              (seriesAiringTodayInfo?.original_title) ||
-              (seriesAiringTodayInfo?.name)
-            }
-            onError={() => setImage(fallbackImage)}
-          
-          />
+              <Image
+                quality={100}
+                width={1}
+                height={1}
+                src={typeof(image) !== 'string' ? image.src : image}
+                className="absolute w-full h-full object-cover"
+                alt={
+                  (seriesAiringTodayInfo?.original_title) ||
+                  (seriesAiringTodayInfo?.name)
+                }
+                onError={() => setImage(fallbackImage)}
+                sizes="100vw"
+                style={{
+                  width: "100%",
+                  height: "auto"
+                }} />
         </Link>
       </div>
       <Link

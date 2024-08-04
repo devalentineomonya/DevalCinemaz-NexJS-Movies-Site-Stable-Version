@@ -1,5 +1,5 @@
 "use client";
-import Image from "next/legacy/image";
+import Image from "next/image";
 import React, { useState } from "react";
 import { BsChevronDown } from "react-icons/bs";
 import { TECollapse } from "tw-elements-react";
@@ -44,13 +44,19 @@ const EpisodeCard = ({ episode }) => {
         >
           <div className="flex flex-row gap-x-4">
             <div className="w-[180px]  rounded-md overflow-hidden">
-                  <Image quality={100} layout="responsive" width={1}  height={1}
-                src={image}
-                className="w-full h-full"
-                alt={`${episode?.name}` || "Name not found"}
-              
-                onError={() => setImage(fallbackImage)}
-              />
+                  <Image
+                    quality={100}
+                    width={1}
+                    height={1}
+                    src={image}
+                    className="w-full h-full"
+                    alt={`${episode?.name}` || "Name not found"}
+                    onError={() => setImage(fallbackImage)}
+                    sizes="100vw"
+                    style={{
+                      width: "100%",
+                      height: "auto"
+                    }} />
             </div>
             <div className="overflow-hidden">
               <p className="text-customDark dark:text-customWhite mb-3">

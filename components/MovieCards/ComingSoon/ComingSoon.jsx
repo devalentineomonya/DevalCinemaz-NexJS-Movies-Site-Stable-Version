@@ -1,5 +1,5 @@
 "use client";
-import Image from "next/legacy/image";
+import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import fallbackImage from "@/assets/fallbackImage.svg";
 import Link from "next/link";
@@ -15,15 +15,21 @@ const ComingSoon = ({ upcomingMovie }) => {
   return (
     <div className="w-1/2 h-[400px] relative rounded-md overflow-hidden">
       <Link href={`/movies/details/${upcomingMovie.id}`}>
-            <Image quality={100} layout="responsive" width={1}  height={1}
-          src={typeof(image) !== 'string' ? image.src : image} 
-          className="relative w-full h-full object-cover"
-     
-          alt={upcomingMovie.original_title}
-          onError={() => {
-            setImage(fallbackImage);
-          }}
-        />
+            <Image
+              quality={100}
+              width={1}
+              height={1}
+              src={typeof(image) !== 'string' ? image.src : image}
+              className="relative w-full h-full object-cover"
+              alt={upcomingMovie.original_title}
+              onError={() => {
+                setImage(fallbackImage);
+              }}
+              sizes="100vw"
+              style={{
+                width: "100%",
+                height: "auto"
+              }} />
         <div className="absolute z-10 w-full bottom-0 left-0 h-48  text-customWhite bg-gradient-to-t from-slate-700 to-transparent flex justify-center items-end pb-3 text-4xl font-Inter font-semibold  ">
           {upcomingMovie.original_title}
         </div>

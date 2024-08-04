@@ -1,5 +1,5 @@
 "use client"
-import Image from "next/legacy/image";
+import Image from "next/image";
 import React, { useState } from "react";
 import styles from "./OutlineText.module.css";
 import Link from "next/link";
@@ -15,7 +15,19 @@ const TopMovieCard = ({number, trendingMovie}) => {
         <div className="h-full w-full flex justify-start items-end"><span className={` dark:text-customWhite text-customDark font-sans ${styles.strokeText}`}>{number}</span></div>
       </div>
       <div className="w-[60%] bg-gray-400 relative rounded-md overflow-hidden">
-            <Image quality={100} layout="responsive" width={1}  height={1} src={image} className="absolute h-full w-full object-fill" alt={trendingMovie.original_title} onError={()=>{setImage(fallbackImage)}} />
+            <Image
+              quality={100}
+              width={1}
+              height={1}
+              src={image}
+              className="absolute h-full w-full object-fill"
+              alt={trendingMovie.original_title}
+              onError={()=>{setImage(fallbackImage)}}
+              sizes="100vw"
+              style={{
+                width: "100%",
+                height: "auto"
+              }} />
       </div>
     </div>
     </Link>

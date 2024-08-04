@@ -1,5 +1,5 @@
 "use client";
-import Image from "next/legacy/image";
+import Image from "next/image";
 import { BsStarFill } from "react-icons/bs";
 import fallbackImage from "@/assets/fallbackImage.svg";
 import { useState } from "react";
@@ -24,7 +24,6 @@ const NewRelease = ({ width, movieInfo, type = "Movie" }) => {
         <div className="h-[80%] relative z-0">
           <Image
             quality={100}
-            layout="responsive"
             width={1}
             height={1}
             src={typeof image !== "string" ? image.src : image}
@@ -35,9 +34,13 @@ const NewRelease = ({ width, movieInfo, type = "Movie" }) => {
             alt={
               movieInfo?.original_title || movieInfo?.name || "Media card Image"
             }
-          />
+            sizes="100vw"
+            style={{
+              width: "100%",
+              height: "auto"
+            }} />
         </div>
-        <div className="flex justify-center items-center flex-col cursor-pointer z-10">
+        <div className="flex justify-center items-center flex-col cursor-pointer z-10 bg-gradient-to-t from-slate-700 to-transparent via-slate-400 ">
           <p className="dark:text-customWhite text-customDark font-Inter font-semibold text-2xl whitespace-nowrap overflow-hidden text-ellipsis px-2">
             {movieInfo?.original_title || movieInfo?.name}
           </p>

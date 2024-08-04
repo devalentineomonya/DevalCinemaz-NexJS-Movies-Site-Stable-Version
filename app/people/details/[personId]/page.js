@@ -1,6 +1,6 @@
 import { getInfo, getMediaItems } from '@/app/Api/api';
 import NotFound from '@/app/movies/not-found';
-import Image from "next/legacy/image"
+import Image from "next/image"
 import fallbackImage from "@/assets/fallbackImage.svg"
 import Link from 'next/link';
 import { LuExternalLink } from "react-icons/lu";
@@ -28,7 +28,18 @@ const page = async ({ params }) => {
                     <div className=' grid grid-cols-4 justify-center gap-x-3'>
                         <div className='w-full h-fit col-span-1'>
                             <div className='relative w-full h-[450px]  pt-5'>
-                                    <Image quality={100} layout="responsive" width={1}  height={1} src={imageName}  className='w-full h-full absolute' alt={personInfo.name} />
+                                    <Image
+                                        quality={100}
+                                        width={1}
+                                        height={1}
+                                        src={imageName}
+                                        className='w-full h-full absolute'
+                                        alt={personInfo.name}
+                                        sizes="100vw"
+                                        style={{
+                                            width: "100%",
+                                            height: "auto"
+                                        }} />
                             </div>
                             <div className='my-10'>
                                 <Link href={`${personInfo?.homepage || "https://www.google.com/search?q=" + personInfo.name.replaceAll(" ", "+")}`} target='_blank' className='flex justify-start items-center gap-x-2'>Personal Website<LuExternalLink /></Link>
@@ -70,7 +81,18 @@ const page = async ({ params }) => {
                                 </ul>
                             </div>
                             <div className='relative  grid col-span-1 max-w-[300px] h-full'>
-                                    <Image quality={100} layout="responsive" width={1}  height={1} src={imageName}  className='w-full h-full absolute' alt={personInfo?.name} />
+                                    <Image
+                                        quality={100}
+                                        width={1}
+                                        height={1}
+                                        src={imageName}
+                                        className='w-full h-full absolute'
+                                        alt={personInfo?.name}
+                                        sizes="100vw"
+                                        style={{
+                                            width: "100%",
+                                            height: "auto"
+                                        }} />
                             </div>
                         </div>
 
@@ -81,7 +103,7 @@ const page = async ({ params }) => {
 
 
             </div>
-        )
+        );
     } catch (error) {
         console.error("Error fetching data:", error);
 

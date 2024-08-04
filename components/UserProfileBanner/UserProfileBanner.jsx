@@ -3,7 +3,7 @@ import profileBannerLight from "@/assets/profileBannerLight.png";
 import profileBannerDark from "@/assets/profileBannerDark.png";
 import testImage from "@/assets/testImage.jpg";
 import { useEffect, useState } from "react";
-import Image from "next/legacy/image";
+import Image from "next/image";
 import useTheme from "@/hooks/useTheme";
 
 const UserProfileBanner = () => {
@@ -18,10 +18,17 @@ const UserProfileBanner = () => {
   return (
     <div className="w-full h-64 relative flex justify-center items-center ">
       <div className="absolute bg-gradient-to-tr from-black via-gray-900 to-gray-950 bg-opacity-50 top-0 bottom-0 w-full"></div>
-          <Image quality={100} layout="responsive" width={1}  height={1}
-        src={bannerImage}
-        className="w-full h-full absolute"
-      />
+          <Image
+            quality={100}
+            width={1}
+            height={1}
+            src={bannerImage}
+            className="w-full h-full absolute"
+            sizes="100vw"
+            style={{
+              width: "100%",
+              height: "auto"
+            }} />
       <div className="w-full max-w-[1400px]  h-56 z-30 flex items-center">
         <div className="flex flex-row gap-x-5 ">
            <div className="w-40 h-40 rounded-full overflow-hidden bg-sky-600 flex items-center justify-center font-Dosis">

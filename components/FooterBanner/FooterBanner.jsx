@@ -1,5 +1,5 @@
 "use client";
-import Image from "next/legacy/image";
+import Image from "next/image";
 import React, { useState } from "react";
 import fallbackImage from "@/assets/fallbackImage.svg";
 
@@ -14,13 +14,19 @@ const FooterBanner = ({ bannerImage }) => {
 
   return (
     <div className="w-full h-64 rounded-md relative border-y-[1px] dark:border-y-white border-y-black overflow-hidden  ">
-          <Image quality={100} layout="responsive" width={1}  height={1}
-        src={typeof image !== "string" ? image.src : image}
-        className="absolute object-center h-full w-full"
-    
-        alt={bannerImage[randomIndex]?.title ?? "Footer banner image"}
-        onError={() => setImage(fallbackImage)}
-      />
+          <Image
+            quality={100}
+            width={1}
+            height={1}
+            src={typeof image !== "string" ? image.src : image}
+            className="absolute object-center h-full w-full"
+            alt={bannerImage[randomIndex]?.title ?? "Footer banner image"}
+            onError={() => setImage(fallbackImage)}
+            sizes="100vw"
+            style={{
+              width: "100%",
+              height: "auto"
+            }} />
     </div>
   );
 };

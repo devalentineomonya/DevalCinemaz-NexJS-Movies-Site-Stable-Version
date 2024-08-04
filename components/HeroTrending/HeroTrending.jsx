@@ -1,5 +1,5 @@
 "use client";
-import Image from "next/legacy/image";
+import Image from "next/image";
 import React from "react";
 import HeroTrendingButtons from "./HeroTrendingButtons/HeroTrendingButtons";
 import fallbackImage from "@/assets/fallbackImage.svg";
@@ -19,16 +19,22 @@ const HeroTrending = ({ setVideoPlaying, action, sliderMovie }) => {
     <div className="w-full xl:h-[70vh] h-fit relative  cursor-default">
       <div className="bg-gradient-to-r from-customDark via-gray-800 to-black h-full w-full absolute left-0 top-0 dark:opacity-[0.7] opacity-40"></div>
       <div className=" w-full h-full">
-            <Image quality={100} layout="responsive" width={1}  height={1} 
-          src={
-            `https://image.tmdb.org/t/p/original${
-              sliderMovie.backdrop_path != null && sliderMovie.backdrop_path
-            }` || fallbackImage
-          }
-          className="w-full h-full object-cover"
-          alt={sliderMovie.original_title || sliderMovie.name}
-        
-        />
+            <Image
+              quality={100}
+              width={1}
+              height={1}
+              src={
+                `https://image.tmdb.org/t/p/original${
+                  sliderMovie.backdrop_path != null && sliderMovie.backdrop_path
+                }` || fallbackImage
+              }
+              className="w-full h-full object-cover"
+              alt={sliderMovie.original_title || sliderMovie.name}
+              sizes="100vw"
+              style={{
+                width: "100%",
+                height: "auto"
+              }} />
 
         <div className=" xl:w-[40%] w-[55%] h-[70%] absolute bottom-20 xl:left-40 left-10  z-20">
           <p className="text-2xl font-bold">
@@ -85,13 +91,19 @@ const HeroTrending = ({ setVideoPlaying, action, sliderMovie }) => {
         </div>
         {action === "play" ? (
           <div className="w-72 h-96 rounded-md z-20 absolute xl:right-20 right-10 bottom-20 overflow-hidden">
-                <Image quality={100} layout="responsive" width={1}  height={1}
-              className="w-full h-full object-cover"
-              src={`https://image.tmdb.org/t/p/original${sliderMovie.poster_path}`}
-          
-              alt={sliderMovie.original_title || sliderMovie.name}
-              priority
-            />
+                <Image
+                  quality={100}
+                  width={1}
+                  height={1}
+                  className="w-full h-full object-cover"
+                  src={`https://image.tmdb.org/t/p/original${sliderMovie.poster_path}`}
+                  alt={sliderMovie.original_title || sliderMovie.name}
+                  priority
+                  sizes="100vw"
+                  style={{
+                    width: "100%",
+                    height: "auto"
+                  }} />
           </div>
         ) : null}
       </div>
