@@ -1,5 +1,5 @@
 "use client";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import React, { useState } from "react";
 import { BsChevronDown } from "react-icons/bs";
 import { TECollapse } from "tw-elements-react";

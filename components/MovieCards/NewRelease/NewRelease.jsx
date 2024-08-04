@@ -1,5 +1,5 @@
 "use client";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import { BsStarFill } from "react-icons/bs";
 import fallbackImage from "@/assets/fallbackImage.svg";
 import { useState } from "react";

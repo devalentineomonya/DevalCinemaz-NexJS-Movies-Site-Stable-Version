@@ -1,6 +1,6 @@
 import { getInfo, getMediaItems } from '@/app/Api/api';
 import NotFound from '@/app/movies/not-found';
-import Image from 'next/image'
+import Image from "next/legacy/image"
 import fallbackImage from "@/assets/fallbackImage.svg"
 import Link from 'next/link';
 import { LuExternalLink } from "react-icons/lu";

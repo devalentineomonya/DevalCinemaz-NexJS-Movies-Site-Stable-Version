@@ -3,7 +3,7 @@ import profileBannerLight from "@/assets/profileBannerLight.png";
 import profileBannerDark from "@/assets/profileBannerDark.png";
 import testImage from "@/assets/testImage.jpg";
 import { useEffect, useState } from "react";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import useTheme from "@/hooks/useTheme";
 
 const UserProfileBanner = () => {

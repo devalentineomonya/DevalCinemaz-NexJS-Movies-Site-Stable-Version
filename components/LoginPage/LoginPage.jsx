@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import { useState } from "react";
 import testImage from "@/assets/testImage.jpg";
 import { BsPlus } from "react-icons/bs";

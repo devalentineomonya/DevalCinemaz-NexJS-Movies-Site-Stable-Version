@@ -16,7 +16,9 @@
     "react-icons": "^5.2.1",
     "react-spinners": "^0.14.1",
     "react-youtube": "^10.1.0",
-    "swiper": "^11.1.9"
+    "sharp": "^0.33.4",
+    "swiper": "^11.1.9",
+    "tw-elements-react": "^1.0.0-alpha-end"
   },
   "devDependencies": {
     "eslint": "^8",
