@@ -1,33 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Allerta+Stencil&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dosis&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+    font-family: "Inter", "Dosis";
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+    display: none;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(45deg, #ff00c8 0%, rgba(253, 29, 29, 1) 50%, #00c8ff 100%);
+    border-radius: 50px;
+
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(45deg, rgba(144, 34, 195, 1) 0%, rgba(113, 163, 107, 1) 59%, rgba(91, 253, 45, 1) 100%);
+}
+
+::-webkit-scrollbar-button {
+    display: none;
+}
+
+input[type=range] {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 8px;
+    border-radius: 5px;
+    background: linear-gradient(45deg, #ff00c8 0%, rgba(253, 29, 29, 1) 50%, #00c8ff 100%);
+    outline: none;
+    margin: 10px 0;
+}
+
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, rgba(144, 34, 195, 1) 0%, rgba(113, 163, 107, 1) 59%, rgba(91, 253, 45, 1) 100%);
+    cursor: pointer;
 }
