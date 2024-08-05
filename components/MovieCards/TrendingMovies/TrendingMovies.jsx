@@ -39,12 +39,12 @@ const TrendingMovies = ({ mediaInfo, mediaType }) => {
                 height: "auto"
               }} />
         <div
-          className={`absolute bg-gradient-to-t from-gray-700 to-transparent w-full h-1/2 flex justify-start items-end pl-4 pb-6 cursor-pointer  transition-all ease-in-out duration-300  ${
+          className={`absolute bg-gradient-to-t from-gray-950 to-gray-500 w-full h-1/4 flex justify-start items-end pl-4 pb-6 cursor-pointer  transition-all ease-in-out duration-300  ${
             mouseHover ? "bottom-0 " : "bottom-[-300px]"
           }`}
         >
           <p className="text-customWhite font-semibold font-Dosis text-2xl">
-            {(mediaInfo && mediaInfo.original_title) ||
+            {(mediaInfo && mediaInfo.original_title) ??
               (mediaInfo && mediaInfo.name)}
           </p>
         </div>

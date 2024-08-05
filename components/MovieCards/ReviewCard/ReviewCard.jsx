@@ -38,7 +38,7 @@ const ReviewCard = ({ review }) => {
             </p>
             <div className="flex flex-row justify-start items-center pt-2">
               <div className="px-2 text-customWhite w-[60px] flex justify-center items-center rounded-xl dark:bg-customGreen bg-green-600 ">
-                <GoStarFill /> {review.author_details.rating * 10}%
+                <GoStarFill /> {review?.author_details?.rating * 10}%
               </div>
               <p className="pl-3 font-thin text-sm">
                 Written by <span className="font-bold">{review.author}</span> on

@@ -22,7 +22,6 @@ export default async function Home() {
     ]);
 
     const [countryName, trendingMoviesRes, sliderMovies, upcomingMovies, topRatedMovies, topRatedSeries, nowPlayingMovies, seriesAiringToday] = homePage;
-console.log(process.env.NODE_ENV)
     return (
       <>
         <HeroSwipper sliderMovies={sliderMovies} />
