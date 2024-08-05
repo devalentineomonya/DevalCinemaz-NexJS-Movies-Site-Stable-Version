@@ -1,5 +1,5 @@
 import { getInfo, getMediaItems, getMediaPerCategory } from "@/app/Api/api";
-import MediaDetailsContainer from "@/Components/MediaDetailsContainer/MediaDetailsContainer";
+import MediaDetailsContainer from "@/components/MediaDetailsContainer/MediaDetailsContainer";
 import NotFound from "../../not-found";
 
 const page = async ({ params }) => {

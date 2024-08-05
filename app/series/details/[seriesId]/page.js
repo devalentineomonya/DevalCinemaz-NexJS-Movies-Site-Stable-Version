@@ -1,5 +1,5 @@
-import MediaDetailsContainer from "@/Components/MediaDetailsContainer/MediaDetailsContainer"
-import SeriesNavbar from "@/Components/SeriesNavbar/SeriesNavbar"
+import MediaDetailsContainer from "@/components/MediaDetailsContainer/MediaDetailsContainer"
+import SeriesNavbar from "@/components/SeriesNavbar/SeriesNavbar"
 import { getInfo, getMediaItems, getMediaPerCategory } from "@/app/Api/api";
 import NotFound from "@/app/movies/not-found";
 

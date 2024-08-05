@@ -4,7 +4,7 @@ import Image from "next/image"
 import fallbackImage from "@/assets/fallbackImage.svg"
 import Link from 'next/link';
 import { LuExternalLink } from "react-icons/lu";
-import NewRelease from '@/Components/MovieCards/NewRelease/NewRelease';
+import NewRelease from '@/components/MovieCards/NewRelease/NewRelease';
 
 const page = async ({ params }) => {
 
