@@ -1,6 +1,6 @@
 export const dynamic = 'force-dynamic'
 import { getSearchResult } from '../Api/api'
-import SearchContainer from '@/components/SearchContainer/SearchContainer'
+import SearchContainer from '@/Components/SearchContainer/SearchContainer'
 
 export default async function page({ searchParams }) {
     try {

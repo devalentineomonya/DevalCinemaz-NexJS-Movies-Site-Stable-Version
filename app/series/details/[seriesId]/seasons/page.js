@@ -1,6 +1,6 @@
-import SeasonBanner from '@/components/SeasonBanner/SeasonBanner'
-import SeriesNavbar from '@/components/SeriesNavbar/SeriesNavbar'
-import SeriesSeasonsContainer from '@/components/SeriesSeasonsContainer/SeriesSeasonsContainer'
+import SeasonBanner from '@/Components/SeasonBanner/SeasonBanner'
+import SeriesNavbar from '@/Components/SeriesNavbar/SeriesNavbar'
+import SeriesSeasonsContainer from '@/Components/SeriesSeasonsContainer/SeriesSeasonsContainer'
 import { getInfo } from '@/app/Api/api'
 import NotFound from '@/app/movies/not-found'
 

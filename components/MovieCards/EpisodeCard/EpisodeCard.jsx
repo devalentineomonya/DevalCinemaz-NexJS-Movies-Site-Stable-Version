@@ -5,7 +5,7 @@ import { BsChevronDown } from "react-icons/bs";
 import { TECollapse } from "tw-elements-react";
 import fallbackImage from "@/assets/fallbackImage.svg"
 import { RiStarFill } from "react-icons/ri";
-import GuestStart from "@/components/GuestStart/GuestStart";
+import GuestStart from "@/Components/GuestStart/GuestStart";
 const EpisodeCard = ({ episode }) => {
   const [active, setActive] = useState("");
   const [image, setImage] = useState(

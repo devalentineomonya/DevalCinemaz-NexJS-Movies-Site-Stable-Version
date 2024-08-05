@@ -1,7 +1,7 @@
 
-import FavoritesCard from '@/components/MovieCards/FavoritesCard/FavoritesCard'
-import SeriesNavbar from '@/components/SeriesNavbar/SeriesNavbar'
-import UserProfileBanner from '@/components/UserProfileBanner/UserProfileBanner'
+import FavoritesCard from '@/Components/MovieCards/FavoritesCard/FavoritesCard'
+import SeriesNavbar from '@/Components/SeriesNavbar/SeriesNavbar'
+import UserProfileBanner from '@/Components/UserProfileBanner/UserProfileBanner'
 
 
 const page = ({ params }) => {

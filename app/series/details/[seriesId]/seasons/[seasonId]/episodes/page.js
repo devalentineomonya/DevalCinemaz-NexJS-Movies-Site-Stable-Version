@@ -1,5 +1,5 @@
-import EpisodeSubNavbar from '@/components/EpisodeSubNavbar/EpisodeSubNavbar'
-import EpisodeCard from '@/components/MovieCards/EpisodeCard/EpisodeCard'
+import EpisodeSubNavbar from '@/Components/EpisodeSubNavbar/EpisodeSubNavbar'
+import EpisodeCard from '@/Components/MovieCards/EpisodeCard/EpisodeCard'
 import { getEpisodes } from '@/app/Api/api'
 import NotFound from '@/app/movies/not-found'
 import React from 'react'

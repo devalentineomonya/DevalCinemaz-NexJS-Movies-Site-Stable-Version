@@ -1,4 +1,4 @@
-import MediaContainer from '@/components/MediaContainer/MediaContainer';
+import MediaContainer from '@/Components/MediaContainer/MediaContainer';
 import { getMediaPerCategory } from '@/app/Api/api';
 
 

@@ -1,7 +1,7 @@
-import Associates from "@/components/Associates/Associates";
-import FooterBanner from "@/components/FooterBanner/FooterBanner";
-import HeroSwipper from "@/components/HeroSwipper/HeroSwipper";
-import HomeMainSection from "@/components/HomeMainSection/HomeMainSection";
+import Associates from "@/Components/Associates/Associates";
+import FooterBanner from "@/Components/FooterBanner/FooterBanner";
+import HeroSwipper from "@/Components/HeroSwipper/HeroSwipper";
+import HomeMainSection from "@/Components/HomeMainSection/HomeMainSection";
 import { fetchCountryName, getMediaPerCategory } from "./Api/api";
 
 
