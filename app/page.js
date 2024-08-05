@@ -8,7 +8,6 @@ import DisplayError from "@/components/common/DisplayError/DisplayError";
 export default async function Home() {
   try {
     const homePage = await Promise.all([
-      fetchCountryName(),
       getMediaPerCategory("trending", "movie", 1),
       getMediaPerCategory("discover", "movie", 2),
       getMediaPerCategory("upcoming", "movie", 4),
@@ -19,7 +18,7 @@ export default async function Home() {
     ]);
 
     const [
-      countryName,
+
       trendingMoviesRes,
       sliderMovies,
       upcomingMovies,
@@ -28,6 +27,18 @@ export default async function Home() {
       nowPlayingMovies,
       seriesAiringToday,
     ] = homePage;
+
+    const getCountry = async () => {
+      let country
+      try {
+        country = await fetchCountryName()
+
+      } catch (error) {
+        country = kenya
+
+      }
+    }
+    const countryName = getCountry()
 
     return (
       <>
