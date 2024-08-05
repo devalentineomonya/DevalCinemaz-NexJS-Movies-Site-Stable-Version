@@ -4,7 +4,7 @@ import styles from "./progressbar.module.css";
 function  getRandomInt (){
   return Math.floor(Math.random()*((10-5)+1))+5
 }
-const ProgressBar = () => {
+const Progressbar = () => {
   const [progress, setProgress] = useState(0);
   useEffect(() => {
     const interval = setInterval(() => {
@@ -27,4 +27,4 @@ const ProgressBar = () => {
   );
 };
 
-export default ProgressBar;
+export default Progressbar;
