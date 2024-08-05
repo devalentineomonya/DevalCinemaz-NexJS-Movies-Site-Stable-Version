@@ -1,5 +1,5 @@
 import { getInfo, getMediaItems, getMediaPerCategory } from "@/app/Api/api";
-import MediaDetailsContainer from "@/components/MediaDetailsLayout/MediaDetailsContainer";
+import MediaDetailsLayout from "@/components/MediaDetailsLayout/MediaDetailsLayout";
 import NotFound from "../../not-found";
 import DisplayError from "@/components/common/DisplayError/DisplayError";
 
@@ -25,7 +25,7 @@ const page = async ({ params }) => {
 
     return (
       <div className="pt-[65px] dark:bg-customDark bg-customWhite">
-        <MediaDetailsContainer
+        <MediaDetailsLayout
           movieInfo={movieInfo}
           videoInfo={videoInfo}
           castList={castList}

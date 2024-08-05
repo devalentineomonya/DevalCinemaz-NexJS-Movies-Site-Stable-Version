@@ -1,4 +1,4 @@
-import MediaDetailsContainer from "@/components/MediaDetailsLayout/MediaDetailsContainer"
+import MediaDetailsLayout from "@/components/MediaDetailsLayout/MediaDetailsLayout"
 import SeriesNavbar from "@/components/SeriesNavbar/SeriesNavbar"
 import { getInfo, getMediaItems, getMediaPerCategory } from "@/app/Api/api";
 import NotFound from "@/app/movies/not-found";
@@ -49,7 +49,7 @@ const page = async ({ params }) => {
       <>
         <div className="pt-[65px] dark:bg-customDark bg-customWhite">
           <SeriesNavbar h="[115px]" tabsNames={tabsNames} seriesId={seriesId}/>
-          <MediaDetailsContainer
+          <MediaDetailsLayout
             movieInfo={seriesInfo}
             videoInfo={videoInfo}
             castList={castList}
