@@ -66,7 +66,7 @@ const page = async ({ params }) => {
 
     );
   } catch (error) {
-    console.error("Error fetching data:", error);
+    console.error("Error fetching data: Series Details=>", error);
 
   }
 };

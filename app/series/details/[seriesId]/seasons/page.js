@@ -22,7 +22,7 @@ const page = async ({ params }) => {
       </div>
     )
   } catch (error) {
-    console.error("Error fetching data:", error);
+    console.error("Error fetching data: Series Details Seasons=>", error);
 
   }
 }

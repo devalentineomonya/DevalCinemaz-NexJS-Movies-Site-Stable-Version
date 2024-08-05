@@ -29,7 +29,7 @@ const page = async ({searchParams }) => {
       </>
     );
   } catch (error) {
-    console.error("Error fetching data:", error.message);
+    console.error("Error fetching data:Movies=>", error.message);
   }
 };
 

@@ -31,7 +31,7 @@ const page = async () => {
 
         )
     } catch (error) {
-        console.error("Error fetching data:", error);
+        console.error("Error fetching data:people=>", error);
 
     }
 

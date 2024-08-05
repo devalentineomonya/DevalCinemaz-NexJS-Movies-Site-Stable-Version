@@ -42,7 +42,7 @@ const page = async ({ params, searchParams }) => {
       </>
     );
   } catch (error) {
-    console.error("Error fetching data:", error);
+    console.error("Error fetching data:Series filter=>", error);
   }
 };
 

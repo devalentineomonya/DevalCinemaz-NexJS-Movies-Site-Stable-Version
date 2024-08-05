@@ -37,7 +37,7 @@ const page = async ({ params, searchParams }) => {
       </>
     );
   } catch (error) {
-    console.error("Error fetching data:", error.message);
+    console.error("Error fetching data:Movies Filter=>", error.message);
   }
 };
 

@@ -19,7 +19,7 @@ export default async function page({ searchParams }) {
         )
 
     } catch (error) {
-        console.error("Error fetching data:", error);
+        console.error("Error fetching data:Search=>", error);
 
     }
 }
