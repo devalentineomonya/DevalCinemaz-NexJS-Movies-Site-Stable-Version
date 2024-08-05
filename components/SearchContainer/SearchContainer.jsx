@@ -1,9 +1,9 @@
 "use client";
 import { useState } from "react";
-import NewRelease from "../MovieCards/NewRelease/NewRelease";
-import PersonCard from "../MovieCards/PersonCard/PersonCard";
-import MovieInCategory from "../MovieCards/MovieInCategory/MovieInCategory";
-import CompanyCard from "../MovieCards/CompanyCard/CompanyCard";
+import NewRelease from "../common/MovieCards/NewRelease/NewRelease";
+import PersonCard from "../common/MovieCards/PersonCard/PersonCard";
+import MovieInCategory from "../common/MovieCards/MovieInCategory/MovieInCategory";
+import CompanyCard from "../common/MovieCards/CompanyCard/CompanyCard";
 
 
 const SearchContainer = ({ moviesResults, peopleResults, seriesResults, companyResults , keyWordsResults}) => {

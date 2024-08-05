@@ -1,5 +1,6 @@
 import MediaContainer from '@/components/MediaContainer/MediaContainer';
 import { getMediaPerCategory } from '@/app/Api/api';
+import DisplayError from '@/components/common/DisplayError/DisplayError';
 const page = async ({searchParams }) => {
     const pageNumber = parseInt(searchParams.page) || 1;
   const validPageNumber = () => {
@@ -29,7 +30,8 @@ const page = async ({searchParams }) => {
       </>
     );
   } catch (error) {
-    console.error("Error fetching data:Movies=>", error.message);
+    console.error("Error fetching data at Movies", "\n=> Message: ", error.message, "\n=> Cause: ", error.cause);
+    return(<DisplayError message={error.message}/>)
   }
 };
 

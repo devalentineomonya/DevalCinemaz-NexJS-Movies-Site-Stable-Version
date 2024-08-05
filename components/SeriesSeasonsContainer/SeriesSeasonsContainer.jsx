@@ -1,4 +1,4 @@
-import SeasonCard from '../MovieCards/SeasonCard/SeasonCard'
+import SeasonCard from '../common/MovieCards/SeasonCard/SeasonCard'
 
 const SeriesSeasonsContainer = ({seriesData, seriesId}) => {
    

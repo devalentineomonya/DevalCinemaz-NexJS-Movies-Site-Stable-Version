@@ -1,5 +1,5 @@
 "use client";
-import Progressbar from '@/components/ProgressBar/ProgressBar';
+import Progressbar from '@/components/common/ProgressBar/ProgressBar';
 import useTheme from '@/hooks/useTheme';
 import { ScaleLoader } from 'react-spinners';
 

@@ -1,5 +1,5 @@
 import React from "react";
-import NewRelease from "../MovieCards/NewRelease/NewRelease";
+import NewRelease from "../common/MovieCards/NewRelease/NewRelease";
 import MoviesFilter from "../MoviesFilter/MoviesFilter";
 
 import PageNavigationButtons from "../PageNavigationButtons/PageNavigationButtons";

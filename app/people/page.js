@@ -1,6 +1,7 @@
-import PersonCard from '@/components/MovieCards/PersonCard/PersonCard'
+import PersonCard from '@/components/common/MovieCards/PersonCard/PersonCard'
 import { getMediaPerCategory } from '../Api/api';
 import PageNavigationButtons from '@/components/PageNavigationButtons/PageNavigationButtons';
+import DisplayError from '@/components/common/DisplayError/DisplayError';
 
 
 const page = async () => {
@@ -31,7 +32,8 @@ const page = async () => {
 
         )
     } catch (error) {
-        console.error("Error fetching data:people=>", error);
+        console.error("Error fetching data at People", "\n=> Message: ", error.message, "\n=> Cause: ", error.cause);
+        return(<DisplayError message={error.message}/>)
 
     }
 

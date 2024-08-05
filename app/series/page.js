@@ -1,5 +1,6 @@
 import MediaContainer from '@/components/MediaContainer/MediaContainer';
 import { getMediaPerCategory } from '@/app/Api/api';
+import DisplayError from '@/components/common/DisplayError/DisplayError';
 
 
 const page = async ({searchParams }) => {
@@ -31,7 +32,8 @@ const page = async ({searchParams }) => {
       </>
     );
   } catch (error) {
-    console.error("Error fetching data:Series=>", error);
+    console.error("Error fetching data at Series", "\n=> Message: ", error.message, "\n=> Cause: ", error.cause);
+    return(<DisplayError message={error.message}/>)
   }
 };
 

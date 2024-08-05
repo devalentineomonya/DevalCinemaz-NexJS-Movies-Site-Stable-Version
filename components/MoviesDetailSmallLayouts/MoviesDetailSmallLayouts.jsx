@@ -1,6 +1,6 @@
 import React from "react";
 
-const MoviesDetailSmallSections = ({ children, title,mt=0 }) => {
+const MoviesDetailSmallLayouts = ({ children, title,mt=0 }) => {
   return (
     <div className={`w-full mt-${mt}`}>
       <h1 className="mb-3 text-xl text-customDark dark:text-customWhite font-semibold font-Inter ">
@@ -13,4 +13,4 @@ const MoviesDetailSmallSections = ({ children, title,mt=0 }) => {
   );
 };
 
-export default MoviesDetailSmallSections;
+export default MoviesDetailSmallLayouts;

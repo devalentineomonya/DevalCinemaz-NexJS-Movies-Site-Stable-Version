@@ -1,5 +1,5 @@
 
-import FavoritesCard from '@/components/MovieCards/FavoritesCard/FavoritesCard'
+import FavoritesCard from '@/components/common/MovieCards/FavoritesCard/FavoritesCard'
 import SeriesNavbar from '@/components/SeriesNavbar/SeriesNavbar'
 import UserProfileBanner from '@/components/UserProfileBanner/UserProfileBanner'
 

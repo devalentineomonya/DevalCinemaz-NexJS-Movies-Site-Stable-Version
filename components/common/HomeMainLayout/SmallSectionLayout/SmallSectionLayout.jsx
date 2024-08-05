@@ -1,4 +1,4 @@
-const SmallSectionContainer = ({ children, title, viewMore }) => {
+const SmallSectionLayout = ({ children, title, viewMore }) => {
   return (
     <div className="w-full  max-w-[1400px] ">
       <div
@@ -22,4 +22,4 @@ const SmallSectionContainer = ({ children, title, viewMore }) => {
   );
 };
 
-export default SmallSectionContainer;
+export default SmallSectionLayout;

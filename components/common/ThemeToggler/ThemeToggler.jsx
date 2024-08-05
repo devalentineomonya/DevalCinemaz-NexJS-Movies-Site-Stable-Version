@@ -5,7 +5,7 @@ import { GoMoon } from "react-icons/go";
 
 import { IoSunny } from "react-icons/io5";
 
-const ModeToggler = () => {
+const ThemeToggler = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [theme, setTheme, darkMode, setDarkMode] = useTheme();
 
@@ -58,4 +58,4 @@ const ModeToggler = () => {
   );
 };
 
-export default ModeToggler;
+export default ThemeToggler;

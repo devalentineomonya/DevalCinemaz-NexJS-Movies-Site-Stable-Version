@@ -4,7 +4,8 @@ import Image from "next/image"
 import fallbackImage from "@/assets/fallbackImage.svg"
 import Link from 'next/link';
 import { LuExternalLink } from "react-icons/lu";
-import NewRelease from '@/components/MovieCards/NewRelease/NewRelease';
+import NewRelease from '@/components/common/MovieCards/NewRelease/NewRelease';
+import DisplayError from '@/components/common/DisplayError/DisplayError';
 
 const page = async ({ params }) => {
 
@@ -105,7 +106,8 @@ const page = async ({ params }) => {
             </div>
         );
     } catch (error) {
-        console.error("Error fetching data:", error);
+        console.error("Error fetching data at Person Details personId", "\n=> Message: ", error.message, "\n=> Cause: ", error.cause);
+        return(<DisplayError message={error.message}/>)
 
     }
 

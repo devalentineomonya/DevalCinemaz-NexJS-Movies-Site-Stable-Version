@@ -1,6 +1,7 @@
 import MediaContainer from '@/components/MediaContainer/MediaContainer';
 import { getMediaPerCategory } from '@/app/Api/api';
 import NotFound from '../not-found';
+import DisplayError from '@/components/common/DisplayError/DisplayError';
 
 const page = async ({ params, searchParams }) => {
   const routeFilter = (params.filter).toString().replaceAll("-", "_");
@@ -37,7 +38,8 @@ const page = async ({ params, searchParams }) => {
       </>
     );
   } catch (error) {
-    console.error("Error fetching data:Movies Filter=>", error.message);
+    console.error("Error fetching data at MOvies filter", "\n=> Message: ", error.message, "\n=> Cause: ", error.cause);
+    return(<DisplayError message={error.message}/>)
   }
 };
 

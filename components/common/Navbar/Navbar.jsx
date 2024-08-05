@@ -5,7 +5,7 @@ import { RiUserAddLine } from "react-icons/ri";
 import { IoSearchOutline } from "react-icons/io5";
 import SearchForm from "./SearchForm/SearchForm";
 import NavItem from "./NavItem/NavItem";
-import ModeToggler from "../ModeToggler/ModeToggler";
+import ThemeToggler from "../ThemeToggler/ThemeToggler";
 import styles from "./GlowingTitle.module.css";
 import Link from "next/link";
 
@@ -95,7 +95,7 @@ const Navbar = () => {
           <div className=" mr-5 cursor-pointer hover:text-customOrange-300 transition-all ease-in-out duration-300">
             <GoBell size={18} />
           </div>
-          <ModeToggler />
+          <ThemeToggler />
         </div>
       </div>
     </header>

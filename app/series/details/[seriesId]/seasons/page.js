@@ -3,6 +3,7 @@ import SeriesNavbar from '@/components/SeriesNavbar/SeriesNavbar'
 import SeriesSeasonsContainer from '@/components/SeriesSeasonsContainer/SeriesSeasonsContainer'
 import { getInfo } from '@/app/Api/api'
 import NotFound from '@/app/movies/not-found'
+import DisplayError from '@/components/common/DisplayError/DisplayError'
 
 
 const page = async ({ params }) => {
@@ -22,7 +23,8 @@ const page = async ({ params }) => {
       </div>
     )
   } catch (error) {
-    console.error("Error fetching data: Series Details Seasons=>", error);
+    console.error("Error fetching data at Series Details SeriesId Season", "\n=> Message: ", error.message, "\n=> Cause: ", error.cause);
+    return(<DisplayError message={error.message}/>)
 
   }
 }

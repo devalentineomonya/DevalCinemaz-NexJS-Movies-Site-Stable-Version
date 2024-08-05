@@ -1,4 +1,5 @@
 export const dynamic = 'force-dynamic'
+import DisplayError from '@/components/common/DisplayError/DisplayError'
 import { getSearchResult } from '../Api/api'
 import SearchContainer from '@/components/SearchContainer/SearchContainer'
 
@@ -19,7 +20,8 @@ export default async function page({ searchParams }) {
         )
 
     } catch (error) {
-        console.error("Error fetching data:Search=>", error);
+        console.error("Error fetching data at Search ", "\n=> Message: ", error.message, "\n=> Cause: ", error.cause);
+        return(<DisplayError message={error.message}/>)
 
     }
 }

@@ -1,6 +1,7 @@
 import { getInfo, getMediaItems, getMediaPerCategory } from "@/app/Api/api";
-import MediaDetailsContainer from "@/components/MediaDetailsContainer/MediaDetailsContainer";
+import MediaDetailsContainer from "@/components/MediaDetailsLayout/MediaDetailsContainer";
 import NotFound from "../../not-found";
+import DisplayError from "@/components/common/DisplayError/DisplayError";
 
 const page = async ({ params }) => {
   const movieId = parseInt(params.movieId);
@@ -37,7 +38,8 @@ const page = async ({ params }) => {
       </div>
     );
   } catch (error) {
-    console.error("Error fetching data:Movie Details=>", error);
+    console.error("Error fetching data at Movies Details movieId", "\n=> Message: ", error.message, "\n=> Cause: ", error.cause);
+    return(<DisplayError message={error.message}/>)
 
   }
 };

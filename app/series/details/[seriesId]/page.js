@@ -1,7 +1,8 @@
-import MediaDetailsContainer from "@/components/MediaDetailsContainer/MediaDetailsContainer"
+import MediaDetailsContainer from "@/components/MediaDetailsLayout/MediaDetailsContainer"
 import SeriesNavbar from "@/components/SeriesNavbar/SeriesNavbar"
 import { getInfo, getMediaItems, getMediaPerCategory } from "@/app/Api/api";
 import NotFound from "@/app/movies/not-found";
+import DisplayError from "@/components/common/DisplayError/DisplayError";
 
 const tabsNames = [
   {
@@ -66,7 +67,8 @@ const page = async ({ params }) => {
 
     );
   } catch (error) {
-    console.error("Error fetching data: Series Details=>", error);
+    console.error("Error fetching data at Series Details Series Id", "\n=> Message: ", error.message, "\n=> Cause: ", error.cause);
+    return(<DisplayError message={error.message}/>)
 
   }
 };

@@ -1,8 +1,9 @@
 import Associates from "@/components/Associates/Associates";
 import FooterBanner from "@/components/FooterBanner/FooterBanner";
 import HeroSwipper from "@/components/HeroSwipper/HeroSwipper";
-import HomeMainSection from "@/components/HomeMainSection/HomeMainSection";
+import HomeMainLayout from "@/components/common/HomeMainLayout/HomeMainLayout";
 import { fetchCountryName, getMediaPerCategory } from "./Api/api";
+import DisplayError from "@/components/common/DisplayError/DisplayError";
 
 
 export default async function Home() {
@@ -25,7 +26,7 @@ export default async function Home() {
     return (
       <>
         <HeroSwipper sliderMovies={sliderMovies} />
-        <HomeMainSection
+        <HomeMainLayout
           countryName={countryName}
           trendingMoviesRes={trendingMoviesRes}
           upcomingMovies={upcomingMovies}
@@ -39,7 +40,8 @@ export default async function Home() {
       </>
     );
   } catch (error) {
-    console.error("Error fetching data:Home=>", error);
+    console.error("Error fetching data at Home", "\n=> Message: ", error.message, "\n=> Cause: ", error.cause);
+    return(<DisplayError message={error.message}/>)
 
   }
 }
