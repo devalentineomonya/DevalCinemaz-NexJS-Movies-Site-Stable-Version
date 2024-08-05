@@ -1,4 +1,4 @@
-import MediaDetailsLayout from "@/components/MediaDetailsLayout/MediaDetailsLayout"
+import MediaDetailsLayout from "@/components/common/MediaDetailsLayout/MediaDetailsLayout"
 import SeriesNavbar from "@/components/SeriesNavbar/SeriesNavbar"
 import { getInfo, getMediaItems, getMediaPerCategory } from "@/app/Api/api";
 import NotFound from "@/app/movies/not-found";

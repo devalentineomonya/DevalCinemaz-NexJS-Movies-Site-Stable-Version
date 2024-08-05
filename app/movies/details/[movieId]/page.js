@@ -1,5 +1,5 @@
 import { getInfo, getMediaItems, getMediaPerCategory } from "@/app/Api/api";
-import MediaDetailsLayout from "@/components/MediaDetailsLayout/MediaDetailsLayout";
+import MediaDetailsLayout from "@/components/common/MediaDetailsLayout/MediaDetailsLayout";
 import NotFound from "../../not-found";
 import DisplayError from "@/components/common/DisplayError/DisplayError";
 
