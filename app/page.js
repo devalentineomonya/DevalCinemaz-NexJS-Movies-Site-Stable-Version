@@ -34,7 +34,7 @@ export default async function Home() {
         country = await fetchCountryName()
 
       } catch (error) {
-        country = kenya
+        country = "Kenya"
 
       }
     }
