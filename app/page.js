@@ -5,9 +5,7 @@ import HomeMainLayout from "@/components/common/HomeMainLayout/HomeMainLayout";
 import { fetchCountryName, getMediaPerCategory } from "./Api/api";
 import DisplayError from "@/components/common/DisplayError/DisplayError";
 
-
 export default async function Home() {
-
   try {
     const homePage = await Promise.all([
       fetchCountryName(),
@@ -17,12 +15,20 @@ export default async function Home() {
       getMediaPerCategory("top_rated", "movie", 6),
       getMediaPerCategory("top_rated", "tv", 5),
       getMediaPerCategory("now_playing", "movie", 2),
-      getMediaPerCategory("airing_today", "tv", 4)
-
-
+      getMediaPerCategory("airing_today", "tv", 4),
     ]);
 
-    const [countryName, trendingMoviesRes, sliderMovies, upcomingMovies, topRatedMovies, topRatedSeries, nowPlayingMovies, seriesAiringToday] = homePage;
+    const [
+      countryName,
+      trendingMoviesRes,
+      sliderMovies,
+      upcomingMovies,
+      topRatedMovies,
+      topRatedSeries,
+      nowPlayingMovies,
+      seriesAiringToday,
+    ] = homePage;
+
     return (
       <>
         <HeroSwipper sliderMovies={sliderMovies} />
@@ -41,8 +47,6 @@ export default async function Home() {
     );
   } catch (error) {
     console.error("Error fetching data at Home", "\n=> Message: ", error.message, "\n=> Cause: ", error.cause);
-    return(<DisplayError message={error.message}/>)
-
+    return <DisplayError message={error.message} />;
   }
 }
-
