@@ -1,6 +1,6 @@
-import PersonCard from '@/Components/MovieCards/PersonCard/PersonCard'
+import PersonCard from '@/components/MovieCards/PersonCard/PersonCard'
 import { getMediaPerCategory } from '../Api/api';
-import PageNavigationButtons from '@/Components/PageNavigationButtons/PageNavigationButtons';
+import PageNavigationButtons from '@/components/PageNavigationButtons/PageNavigationButtons';
 
 
 const page = async () => {
