@@ -1,5 +1,9 @@
+import Hero from "../features/home/widgets/Hero";
+
 export default function Home() {
   return (
-  <h1>Init 1</h1>
+  <>
+  <Hero/>
+  </>
   );
 }

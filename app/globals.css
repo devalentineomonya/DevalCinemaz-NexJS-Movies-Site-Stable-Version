@@ -57,6 +57,14 @@
 @layer base {
   * {
     @apply border-border;
+    scrollbar-color: var(--background) ;
+    scrollbar-track-color: var(--background) ;
+    ::-webkit-scrollbar {
+      @apply bg-background  w-1 ;
+    }
+    ::-webkit-scrollbar-thumb {
+      @apply bg-gray-400 rounded;
+    }
   }
   body {
     @apply bg-background text-foreground;
