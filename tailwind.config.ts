@@ -3,7 +3,7 @@ import tailwindAnimate from "tailwindcss-animate";
 export default {
     darkMode: ["class"],
     content: [
-    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./features/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
@@ -16,6 +16,8 @@ export default {
   		},
   		colors: {
   			background: 'hsl(var(--background))',
+			"primary-red":"#e50914",
+			"primary-red-hover":"#bf000a",
   			foreground: 'hsl(var(--foreground))',
   			card: {
   				DEFAULT: 'hsl(var(--card))',

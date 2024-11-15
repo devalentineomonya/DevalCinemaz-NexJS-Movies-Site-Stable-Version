@@ -1,5 +1,7 @@
+"use server"
 import { getPlaiceholder } from "plaiceholder";
-export const getImgBlurData = async (src:string) => {
+
+export const getImgBlurData = async (src:string):Promise<string> => {
   try {
 
     const buffer = await fetch(src).then(async (res) =>
@@ -8,8 +10,9 @@ export const getImgBlurData = async (src:string) => {
 
     const { base64 } = await getPlaiceholder(buffer);
 
-    return base64
+    return base64;
   } catch (error) {
     console.log(error);
+    return "";
   }
 };
