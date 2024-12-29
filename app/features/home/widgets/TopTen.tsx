@@ -17,35 +17,35 @@ const TopTen = () => {
         }}
         className="w-full  justify-between"
       >
-        <CarouselContent>
-          <CarouselItem className="basis-1/6 px-6">
+        <CarouselContent className="h-[24rem]">
+          <CarouselItem className="basis-1/2 sm:basis-1/3 md:basis-1/4 lg:basis-1/5 xl:basis-1/6 ">
             <TopTenCard />
           </CarouselItem>
-          <CarouselItem className="basis-1/6 px-6">
+          <CarouselItem className="basis-1/2 sm:basis-1/3 md:basis-1/4 lg:basis-1/5 xl:basis-1/6">
             <TopTenCard />
           </CarouselItem>
-          <CarouselItem className="basis-1/6 px-6">
+          <CarouselItem className="basis-1/2 sm:basis-1/3 md:basis-1/4 lg:basis-1/5 xl:basis-1/6">
             <TopTenCard />
           </CarouselItem>
-          <CarouselItem className="basis-1/6 px-6">
+          <CarouselItem className="basis-1/2 sm:basis-1/3 md:basis-1/4 lg:basis-1/5 xl:basis-1/6">
             <TopTenCard />
           </CarouselItem>
-          <CarouselItem className="basis-1/6 px-6">
+          <CarouselItem className="basis-1/2 sm:basis-1/3 md:basis-1/4 lg:basis-1/5 xl:basis-1/6">
             <TopTenCard />
           </CarouselItem>
-          <CarouselItem className="basis-1/6 px-6">
+          <CarouselItem className="basis-1/2 sm:basis-1/3 md:basis-1/4 lg:basis-1/5 xl:basis-1/6">
             <TopTenCard />
           </CarouselItem>
-          <CarouselItem className="basis-1/6 px-6">
+          <CarouselItem className="basis-1/2 sm:basis-1/3 md:basis-1/4 lg:basis-1/5 xl:basis-1/6">
             <TopTenCard />
           </CarouselItem>
-          <CarouselItem className="basis-1/6 px-6">
+          <CarouselItem className="basis-1/2 sm:basis-1/3 md:basis-1/4 lg:basis-1/5 xl:basis-1/6">
             <TopTenCard />
           </CarouselItem>
-          <CarouselItem className="basis-1/6 px-6">
+          <CarouselItem className="basis-1/2 sm:basis-1/3 md:basis-1/4 lg:basis-1/5 xl:basis-1/6">
             <TopTenCard />
           </CarouselItem>
-          <CarouselItem className="basis-1/6 px-6">
+          <CarouselItem className="basis-1/2 sm:basis-1/3 md:basis-1/4 lg:basis-1/5 xl:basis-1/6">
             <TopTenCard />
           </CarouselItem>
         </CarouselContent>
