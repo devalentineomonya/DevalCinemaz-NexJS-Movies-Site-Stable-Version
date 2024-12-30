@@ -1,6 +1,8 @@
 import Featured from "../features/home/widgets/Featured";
 import Hero from "../features/home/widgets/Hero";
+import TopSelection from "../features/home/widgets/TopSelection";
 import TopTen from "../features/home/widgets/TopTen";
+import Upcoming from "../features/home/widgets/Upcoming";
 
 export default function Home() {
   return (
@@ -8,6 +10,8 @@ export default function Home() {
       <Hero />
       <TopTen />
       <Featured />
+      <Upcoming/>
+      <TopSelection/>
     </>
   );
 }

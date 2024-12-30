@@ -8,7 +8,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-const Featured = () => {
+const Upcomming = () => {
   return (
     <Carousel
       opts={{
@@ -23,7 +23,7 @@ const Featured = () => {
         prevButton={
           <CarouselPrevious className="static bg-transparent border-foreground" />
         }
-        title="Only on DevalCinemaz"
+        title="Upcoming Movies"
         className=" justify-center max-h-[450px]"
       >
         <CarouselContent className="transition-all ease-in-out duration-500 hover:h-[550px] flex items-center">
@@ -42,4 +42,4 @@ const Featured = () => {
   );
 };
 
-export default Featured;
+export default Upcomming;
