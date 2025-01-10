@@ -16,7 +16,7 @@ import {
 import SelectionCarouselMiniCard from "./SelectionCarouselMiniCard";
 const SelectionCarouselLargeCard = () => {
   return (
-    <Card className="h-[90vh] relative overflow-x-hidden shadow-none  rounded-none border-none">
+    <Card className="h-[80vh] w-full relative overflow-x-hidden shadow-none  rounded-none border-none">
       <CardContent>
         <Image
           src="https://wordpress.iqonic.design/product/wp/streamit/wp-content/uploads/2023/11/viking-big.webp"
@@ -28,31 +28,7 @@ const SelectionCarouselLargeCard = () => {
         />
         <article className=" flex items-center justify-center absolute inset-0 bg-background/50 ">
           <div className="flex items-center justify-center w-full max-w-[1650px] h-full mx-auto">
-            <div className="w-[700px] h-[95%]">
-              <div className="w-[80%]  h-full">
-                <Carousel
-                  opts={{
-                    align: "start",
-                  }}
-                  orientation="vertical"
-                  className="h-full overflow-hidden"
-                >
-                  <CarouselContent className="flex flex-col h-full">
-                    {Array.from({ length: 5 }).map((_, index) => (
-                      <CarouselItem
-                        key={index}
-                        className="h-1/3 basis-1/3"
 
-                      >
-                        <SelectionCarouselMiniCard />
-                      </CarouselItem>
-                    ))}
-                  </CarouselContent>
-                  <CarouselPrevious />
-                  <CarouselNext />
-                </Carousel>
-              </div>
-            </div>
             <div className="container  max-w-[1650px]  h-full flex items-center">
               <div className="text-start max-w-[650px]">
                 <div className="flex items-center gap-x-3 mb-4  fade-in-35 animate-in slide-in-from-right-14 duration-700 ">
