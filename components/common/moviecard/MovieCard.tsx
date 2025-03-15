@@ -16,7 +16,6 @@ const MovieCard = () => {
 
   return (
     <Card className=" group/card -hover:translate-y-20 relative transition-all ease-in-out duration-700 hover:z-10 hover:-m-9 hover:p-10 hover:pb-7  rounded-md box-content hover:bg-muted">
-      {/* Movie Image */}
       <CardContent className="p-0 relative w-full aspect-[1/1.45]  group-hover/card:scale-105">
         <Link href="#">
           <Image
@@ -29,11 +28,8 @@ const MovieCard = () => {
           />
         </Link>
 
-        {/* Overlay Controls */}
         <div className="hidden animate-in fade-in-25 duration-500 group-hover/card:flex absolute bottom-0 w-full h-1/4 bg-gradient-to-t from-black/60 to-transparent px-4 justify-between items-center z-10">
-          {/* Share and Like */}
           <div className="flex items-center gap-2 animate-in fade-in-25 slide-in-from-bottom-8 duration-500">
-            {/* Share Button */}
             <div className="group/share relative border border-foreground hover:bg-primary-red-hover rounded-full p-1 cursor-pointer">
               <IoShareSocialSharp size={20} />
               <div className="hidden group-hover/share:inline-block animate-in slide-in-from-top-5 duration-500 absolute w-fit px-3 bg-background text-foreground bottom-7 -left-1/3">
@@ -52,7 +48,6 @@ const MovieCard = () => {
               </div>
             </div>
 
-            {/* Like Button */}
             <div className="group/like relative border border-foreground hover:bg-primary-red-hover rounded-full p-1 cursor-pointer">
               <IoHeart size={20} />
               <div className="hidden group-hover/like:grid animate-in slide-in-from-top-5 duration-500 absolute w-fit px-1 bg-background text-foreground bottom-7 -left-1/4 h-12 place-content-center">
@@ -61,7 +56,6 @@ const MovieCard = () => {
             </div>
           </div>
 
-          {/* Play Button */}
           <Link
             href="#"
             className="group/play relative isolate border border-foreground bg-primary-red rounded-full p-3 cursor-pointer overflow-hidden animate-in fade-in-25 slide-in-from-bottom-8 duration-500"
@@ -73,7 +67,6 @@ const MovieCard = () => {
         </div>
       </CardContent>
 
-      {/* Footer Section */}
       <CardFooter className="mt-5 p-0 w-full hidden animate-in fade-in-25 slide-in-from-bottom-8 duration-500 group-hover/card:block">
         <article className="pt-4 flex justify-between items-center w-full">
           <div>
