@@ -28,7 +28,8 @@
     --chart-3: 197 37% 24%;
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
-    --radius: 0.5rem}
+    --radius: 0.5rem;
+  }
   .dark {
     --background: 240 10% 3.9%;
     --foreground: 0 0% 98%;
@@ -53,15 +54,16 @@
     --chart-2: 160 60% 45%;
     --chart-3: 30 80% 55%;
     --chart-4: 280 65% 60%;
-    --chart-5: 340 75% 55%}
+    --chart-5: 340 75% 55%;
+  }
 }
 @layer base {
   * {
     @apply border-border;
-    scrollbar-color: var(--background) ;
-    scrollbar-track-color: var(--background) ;
+    scrollbar-color: var(--background);
+    scrollbar-track-color: var(--background);
     ::-webkit-scrollbar {
-      @apply bg-background  w-1 ;
+      @apply bg-background  w-1;
     }
     ::-webkit-scrollbar-thumb {
       @apply bg-gray-400 rounded;
