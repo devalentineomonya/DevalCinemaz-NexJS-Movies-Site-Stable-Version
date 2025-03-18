@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import {
   Carousel,
   CarouselContent,
@@ -39,7 +39,7 @@ const HeroCarouselMini = () => {
         {Array.from({ length: 5 }).map((_, index) => (
           <CarouselItem key={index} className="pl-1 basis-1/2">
             <div className="p-1">
-              <HeroCarouselMiniCard current={current===index} />
+              <HeroCarouselMiniCard current={current === index} />
             </div>
           </CarouselItem>
         ))}
