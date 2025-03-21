@@ -3,7 +3,7 @@ import tailwindAnimate from "tailwindcss-animate";
 export default {
     darkMode: ["class"],
     content: [
-    "./features/**/*.{js,ts,jsx,tsx,mdx}",
+    "./screens/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
@@ -16,8 +16,8 @@ export default {
   		},
   		colors: {
   			background: 'hsl(var(--background))',
-			"primary-red":"#e50914",
-			"primary-red-hover":"#bf000a",
+  			'primary-red': '#e50914',
+  			'primary-red-hover': '#bf000a',
   			foreground: 'hsl(var(--foreground))',
   			card: {
   				DEFAULT: 'hsl(var(--card))',
@@ -57,6 +57,28 @@ export default {
   				'4': 'hsl(var(--chart-4))',
   				'5': 'hsl(var(--chart-5))'
   			}
+  		},
+  		keyframes: {
+  			'accordion-down': {
+  				from: {
+  					height: '0'
+  				},
+  				to: {
+  					height: 'var(--radix-accordion-content-height)'
+  				}
+  			},
+  			'accordion-up': {
+  				from: {
+  					height: 'var(--radix-accordion-content-height)'
+  				},
+  				to: {
+  					height: '0'
+  				}
+  			}
+  		},
+  		animation: {
+  			'accordion-down': 'accordion-down 0.2s ease-out',
+  			'accordion-up': 'accordion-up 0.2s ease-out'
   		}
   	}
   },
