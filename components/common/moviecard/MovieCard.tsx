@@ -1,90 +1,310 @@
-import { Card, CardContent, CardFooter } from "@/components/ui/card";
-import { FiPlus } from "react-icons/fi";
-import { IoShareSocialSharp, IoHeart } from "react-icons/io5";
-import { FaPlay, FaFacebookF, FaLink, FaXTwitter } from "react-icons/fa6";
-import Link from "next/link";
-import Image from "next/image";
-import React from "react";
+"use client";
 
-const MovieCard = () => {
-  const movie = {
-    title: "Another Danger",
-    duration: "2H:26min",
-    imageUrl:
-      "https://wordpress.iqonic.design/product/wp/streamit/wp-content/uploads/2023/10/u-01.webp",
+import { useState, useEffect } from "react";
+import Image from "next/image";
+import { motion, useAnimation } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import YouTube from "react-youtube";
+import { Star, Clock, Calendar, Crown } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
+import { Card, CardContent } from "@/components/ui/card";
+import MovieLoading from "./MovieLoading";
+
+interface Movie {
+  id: number;
+  title: string;
+  poster_path: string;
+  backdrop_path: string;
+  vote_average: number;
+  release_date: string;
+  runtime: number;
+  overview: string;
+  genres: { id: number; name: string }[];
+}
+
+interface VideoResult {
+  id: string;
+  key: string;
+  name: string;
+  site: string;
+  type: string;
+}
+
+interface VideoResponse {
+  results: VideoResult[];
+}
+
+interface MovieCardProps {
+  movieId: number;
+  apiKey: string;
+}
+
+export default function MovieCard({ movieId, apiKey }: MovieCardProps) {
+  const [movie, setMovie] = useState<Movie | null>(null);
+  const [trailer, setTrailer] = useState<string | null>(null);
+  const [isHovering, setIsHovering] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+  const controls = useAnimation();
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
+  useEffect(() => {
+    if (inView) {
+      controls.start("visible");
+    }
+  }, [controls, inView]);
+
+  // Animation variants
+  const cardVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut" },
+    },
   };
 
+  const imageVariants = {
+    hover: { scale: 1.05, transition: { duration: 0.3 } },
+    rest: { scale: 1 },
+  };
+
+  const contentVariants = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1, transition: { delay: 0.3 } },
+  };
+
+  const badgeVariants = {
+    hidden: { scale: 0 },
+    visible: { scale: 1 },
+  };
+
+  const trailerVariants = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1 },
+  };
+
+  useEffect(() => {
+    const fetchMovieData = async () => {
+      try {
+        setIsLoading(true);
+
+        const movieResponse = await fetch(
+          `https://api.themoviedb.org/3/movie/${movieId}?api_key=${apiKey}&language=en-US`
+        );
+        const movieData = await movieResponse.json();
+
+        const videosResponse = await fetch(
+          `https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=${apiKey}&language=en-US`
+        );
+        const videosData: VideoResponse = await videosResponse.json();
+
+        const trailerVideo =
+          videosData.results.find(
+            (video) => video.type === "Trailer" && video.site === "YouTube"
+          ) ||
+          videosData.results.find(
+            (video) => video.type === "Teaser" && video.site === "YouTube"
+          );
+
+        setMovie(movieData);
+        setTrailer(trailerVideo?.key || null);
+      } catch (error) {
+        console.error("Error fetching movie data:", error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    if (movieId && apiKey) {
+      fetchMovieData();
+    }
+  }, [movieId, apiKey]);
+
+  const formatRuntime = (minutes: number) => {
+    const hours = Math.floor(minutes / 60);
+    const mins = minutes % 60;
+    return `${hours}h ${mins}m`;
+  };
+
+  const formatDate = (dateString: string) => {
+    return new Date(dateString).toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    });
+  };
+
+  if (isLoading) {
+    return <MovieLoading />;
+  }
+
+  if (!movie) {
+    return (
+      <Card className="w-full max-w-md mx-auto bg-card text-card-foreground">
+        <CardContent className="p-4">
+          <p>Movie not found</p>
+        </CardContent>
+      </Card>
+    );
+  }
+
   return (
-    <Card className=" group/card -hover:translate-y-20 relative transition-all ease-in-out duration-700 hover:z-10 hover:-m-9 hover:p-10 hover:pb-7  rounded-md box-content hover:bg-muted">
-      <CardContent className="p-0 relative w-full aspect-[1/1.45]  group-hover/card:scale-105">
-        <Link href="#">
-          <Image
-            src={movie.imageUrl}
-            alt={`${movie.title} Poster`}
-            priority
-            fill
-            className="absolute object-cover  group-hover/card:scale-110 transition-all ease-in-out duration-700 rounded-md"
-            quality={100}
-          />
-        </Link>
-
-        <div className="hidden animate-in fade-in-25 duration-500 group-hover/card:flex absolute bottom-0 w-full h-1/4 bg-gradient-to-t from-black/60 to-transparent px-4 justify-between items-center z-10">
-          <div className="flex items-center gap-2 animate-in fade-in-25 slide-in-from-bottom-8 duration-500">
-            <div className="group/share relative border border-foreground hover:bg-primary-red-hover rounded-full p-1 cursor-pointer">
-              <IoShareSocialSharp size={20} />
-              <div className="hidden group-hover/share:inline-block animate-in slide-in-from-top-5 duration-500 absolute w-fit px-3 bg-background text-foreground bottom-7 -left-1/3">
-                <FaFacebookF
-                  className="hover:text-primary-red-hover my-3"
-                  size={20}
-                />
-                <FaXTwitter
-                  className="hover:text-primary-red-hover my-5"
-                  size={20}
-                />
-                <FaLink
-                  className="hover:text-primary-red-hover my-3"
-                  size={20}
-                />
-              </div>
-            </div>
-
-            <div className="group/like relative border border-foreground hover:bg-primary-red-hover rounded-full p-1 cursor-pointer">
-              <IoHeart size={20} />
-              <div className="hidden group-hover/like:grid animate-in slide-in-from-top-5 duration-500 absolute w-fit px-1 bg-background text-foreground bottom-7 -left-1/4 h-12 place-content-center">
-                36+
-              </div>
-            </div>
-          </div>
-
-          <Link
-            href="#"
-            className="group/play relative isolate border border-foreground bg-primary-red rounded-full p-3 cursor-pointer overflow-hidden animate-in fade-in-25 slide-in-from-bottom-8 duration-500"
+    <motion.div
+      ref={ref}
+      initial="hidden"
+      animate={controls}
+      variants={cardVariants}
+      className="w-full max-w-md mx-auto"
+      whileHover="hover"
+      onMouseEnter={() => setIsHovering(true)}
+      onMouseLeave={() => setIsHovering(false)}
+    >
+      <Card className="overflow-hidden border border-border shadow-lg hover:shadow-xl transition-shadow duration-300 h-[450px] flex flex-col">
+        <motion.div className="relative h-64 w-full" variants={imageVariants}>
+          <motion.div
+            className="absolute inset-0 z-10"
+            variants={trailerVariants}
+            animate={isHovering && trailer ? "visible" : "hidden"}
           >
-            <FaPlay />
-            <span className="absolute left-0 top-0 h-full w-0 bg-primary-red-hover transition-all ease-in-out duration-500 group-hover/play:w-1/2 -z-10"></span>
-            <span className="absolute right-0 top-0 h-full w-0 bg-primary-red-hover transition-all ease-in-out duration-500 group-hover/play:w-1/2 -z-10"></span>
-          </Link>
-        </div>
-      </CardContent>
+            {trailer && (
+              <YouTube
+                videoId={trailer}
+                opts={{
+                  height: "100%",
+                  width: "100%",
+                  playerVars: {
+                    autoplay: 1,
+                    controls: 0,
+                    mute: 1,
+                    modestbranding: 1,
+                    loop: 1,
+                    playlist: trailer,
+                  },
+                }}
+                className="w-full h-full"
+              />
+            )}
+          </motion.div>
 
-      <CardFooter className="mt-5 p-0 w-full hidden animate-in fade-in-25 slide-in-from-bottom-8 duration-500 group-hover/card:block">
-        <article className="pt-4 flex justify-between items-center w-full">
-          <div>
-            <h1 className="font-medium text-xl text-foreground capitalize">
+          <motion.div
+            variants={trailerVariants}
+            animate={!isHovering || !trailer ? "visible" : "hidden"}
+          >
+            <Image
+              src={`https://image.tmdb.org/t/p/w500${
+                movie.backdrop_path || movie.poster_path
+              }`}
+              alt={movie.title}
+              fill
+              className="object-cover"
+              priority
+            />
+          </motion.div>
+
+          {/* Rating badge */}
+          <motion.div
+            className="absolute top-2 right-2 z-20"
+            variants={badgeVariants}
+            transition={{ type: "spring", stiffness: 300 }}
+          >
+            <Badge
+              variant="secondary"
+              className="flex items-center gap-1 bg-background/80 backdrop-blur-sm"
+            >
+              <Star className="h-3 w-3 fill-yellow-400 text-yellow-400" />
+              {movie.vote_average.toFixed(1)}
+            </Badge>
+          </motion.div>
+
+          {/* Premium badge */}
+          <motion.div
+            className="absolute top-2 left-2 z-20"
+            variants={badgeVariants}
+            transition={{ type: "spring", stiffness: 300, delay: 0.1 }}
+          >
+            <Badge
+              variant="secondary"
+              className="flex items-center justify-center p-1.5 bg-background/80 backdrop-blur-sm"
+            >
+              <Crown className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+            </Badge>
+          </motion.div>
+        </motion.div>
+        <motion.div
+          ref={ref}
+          initial="hidden"
+          animate={controls}
+          variants={contentVariants}
+        >
+          <CardContent className="p-4 flex-grow flex flex-col">
+            <motion.h2
+              className="text-xl font-bold mb-2 line-clamp-1"
+              initial={{ x: -10 }}
+              animate={{ x: 0 }}
+              transition={{ delay: 0.2 }}
+            >
               {movie.title}
-            </h1>
-            <p className="text-sm font-medium mt-4">{movie.duration}</p>
-          </div>
-          <div className="flex items-start h-full pb-7">
-            <Link href="#" className="text-sm font-medium flex items-center">
-              <FiPlus />
-              <span>Watchlist</span>
-            </Link>
-          </div>
-        </article>
-      </CardFooter>
-    </Card>
-  );
-};
+            </motion.h2>
 
-export default MovieCard;
+            <motion.div
+              className="flex flex-wrap gap-2 mb-3"
+              initial="hidden"
+              animate="visible"
+              variants={{
+                visible: {
+                  transition: { staggerChildren: 0.1 },
+                },
+              }}
+            >
+              {movie.genres.slice(0, 3).map((genre) => (
+                <motion.div
+                  key={genre.id}
+                  variants={{
+                    hidden: { opacity: 0, y: 5 },
+                    visible: { opacity: 1, y: 0 },
+                  }}
+                >
+                  <Badge variant="outline" className="text-xs">
+                    {genre.name}
+                  </Badge>
+                </motion.div>
+              ))}
+            </motion.div>
+
+            <motion.div
+              className="flex items-center gap-4 text-sm text-muted-foreground mb-3"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.4 }}
+            >
+              {movie.release_date && (
+                <div className="flex items-center gap-1">
+                  <Calendar className="h-3 w-3" />
+                  {formatDate(movie.release_date)}
+                </div>
+              )}
+              {movie.runtime > 0 && (
+                <div className="flex items-center gap-1">
+                  <Clock className="h-3 w-3" />
+                  {formatRuntime(movie.runtime)}
+                </div>
+              )}
+            </motion.div>
+
+            <motion.p
+              className="text-sm line-clamp-3 text-muted-foreground flex-grow"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.5 }}
+            >
+              {movie.overview}
+            </motion.p>
+          </CardContent>
+        </motion.div>
+      </Card>
+    </motion.div>
+  );
+}
